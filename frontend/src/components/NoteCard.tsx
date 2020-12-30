@@ -9,14 +9,15 @@ export interface Note {
 
 interface NoteItemProps {
   note: Note;
+  handleDelete: any;
 }
 
-const NoteCard: React.FC<NoteItemProps> = ({ note }) => {
+const NoteCard: React.FC<NoteItemProps> = ({ note, handleDelete }) => {
   return (
     <div className="col">
       <div className="card shadow-sm">
         <div className="card-header text-end">
-          <Link to={`/update/${note._id}`} className="btn btn-sm btn-close" />
+          <button className="btn btn-sm btn-close" onClick={() => handleDelete(note._id)} />
         </div>
         <div className="card-body">
           <h5 className="card-title">{note.title}</h5>
